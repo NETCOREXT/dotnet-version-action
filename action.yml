@@ -66,11 +66,11 @@ runs:
     - name: Add NuGet Source
       shell: bash
       if: inputs.nuget-api-url != '' && inputs.nuget-api-key != ''
-      run: dotnet nuget add source --username USERNAME --password ${{ inputs.nuget-api-key }} --store-password-in-clear-text --name nuget-${{ github.run_id }} "${{ inputs.nuget-api-url }}"
+      run: dotnet nuget add source --username USERNAME --password ${{ inputs.nuget-api-key }} --store-password-in-clear-text --name custom-nuget-${{ github.run_id }} "${{ inputs.nuget-api-url }}"
     - name: Add NuGet Source 2
       shell: bash
       if: inputs.nuget-api-url-2 != '' && inputs.nuget-api-key-2 != ''
-      run: dotnet nuget add source --username USERNAME --password ${{ inputs.nuget-api-key-2 }} --store-password-in-clear-text --name nuget-${{ github.run_id }} "${{ inputs.nuget-api-url-2 }}"
+      run: dotnet nuget add source --username USERNAME --password ${{ inputs.nuget-api-key-2 }} --store-password-in-clear-text --name custom-nuget-2-${{ github.run_id }} "${{ inputs.nuget-api-url-2 }}"
     - name: Install dotnet tool
       shell: bash
       run: dotnet tool install -g --prerelease netcorext.tools.assemblyinfo
